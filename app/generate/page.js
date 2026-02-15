@@ -1,6 +1,12 @@
+import { Suspense } from "react";
 import GenerateClient from "@/components/GenerateClient";
 
 export default function Page({ searchParams }) {
   const handle = searchParams?.handle || "";
-  return <GenerateClient handle={handle} />;
+
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <GenerateClient handle={handle} />
+    </Suspense>
+  );
 }
