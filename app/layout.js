@@ -1,9 +1,4 @@
-
-import SessionWrapper from "@/components/sessionWrapper";
 import "./globals.css";
-// import Navbar from "@/components/Navbar";
-
-
 
 export const metadata = {
   title: "LinkTree",
@@ -14,11 +9,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <SessionWrapper>
-        {/* <Navbar/> */}
-
         {children}
-        </SessionWrapper>
       </body>
     </html>
   );
