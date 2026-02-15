@@ -1,4 +1,6 @@
 // "use client"
+export const dynamic = "force-dynamic";
+
 import Link from "next/link";
 import clientPromise from "@/lib/mongodb";
 import { notFound } from "next/navigation";
