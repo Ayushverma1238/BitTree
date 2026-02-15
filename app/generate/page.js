@@ -1,25 +1,29 @@
 "use client";
-export const dynamic = "force-dynamic";
+// export const dynamic = "force-dynamic";
 
 import Navbar from "@/components/Navbar";
 import React from "react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useSearchParams } from "next/navigation";
+import { useEffect } from "react";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 const Generate = () => {
-
-    const router = useRouter();
+  const router = useRouter();
   const searchParams = useSearchParams();
 
   const [links, setLinks] = useState([{ link: "", linktext: "" }]);
-  const [handle, sethandle] = useState(searchParams.get("handle"));
-  const [picture, setpicture] = useState("");
-  const [desc, setdesc] = useState('')
+  const [handle, sethandle] = useState("");
 
-  
+  useEffect(() => {
+    const h = searchParams.get("handle");
+    if (h) sethandle(h);
+  }, [searchParams]);
+
+  const [picture, setpicture] = useState("");
+  const [desc, setdesc] = useState("");
 
   const addLinks = () => {
     setLinks(links.concat([{ link: "", linktext: "" }]));
@@ -29,7 +33,12 @@ const Generate = () => {
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
-    const raw = JSON.stringify({ links: links, handle: handle, pic: picture, desc:desc });
+    const raw = JSON.stringify({
+      links: links,
+      handle: handle,
+      pic: picture,
+      desc: desc,
+    });
     console.log(raw);
     const requestOptions = {
       method: "POST",
@@ -53,7 +62,7 @@ const Generate = () => {
         setpicture("");
         setdesc("");
         sethandle("");
-        router.push(`/${handle}`)
+        router.push(`/${handle}`);
       } else {
         toast.error(result.message);
       }
@@ -70,9 +79,9 @@ const Generate = () => {
     );
   };
 
-  const handleClick = ()=>{
-    router.push(`/${handle}`)
-  }
+  const handleClick = () => {
+    router.push(`/${handle}`);
+  };
 
   return (
     <div>
@@ -175,9 +184,8 @@ const Generate = () => {
                   Add Profile
                 </button>
 
-
                 <button
-                    onClick={handleClick}
+                  onClick={handleClick}
                   className="disabled:from-slate-200 disabled:to-slate-400 disabled:text-black disabled:cursor-not-allowed px-4 w-[80%] mx-auto py-3 rounded-full bg-linear-to-r from-slate-500 to-slate-900 hover:from-slate-900 hover:to-slate-500 cursor-pointer text-white font-bold"
                 >
                   Go to Your Profile
