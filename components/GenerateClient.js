@@ -5,23 +5,19 @@ import Navbar from "@/components/Navbar";
 import React from "react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { useSearchParams } from "next/navigation";
+// import { useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const GenerateClient = () => {
+const GenerateClient = ({ handle: initialHandle }) => {
   const router = useRouter();
-  const searchParams = useSearchParams();
+
+  const [handle, sethandle] = useState(initialHandle || "");
 
   const [links, setLinks] = useState([{ link: "", linktext: "" }]);
-  const [handle, sethandle] = useState("");
-
-  useEffect(() => {
-    const h = searchParams.get("handle");
-    if (h) sethandle(h);
-  }, [searchParams]);
+  // const [handle, sethandle] = useState("");
 
   const [picture, setpicture] = useState("");
   const [desc, setdesc] = useState("");
