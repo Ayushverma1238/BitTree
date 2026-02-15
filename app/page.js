@@ -1,65 +1,161 @@
-import Image from "next/image";
+"use client";
+import HomepageRive from "@/components/HomepageRive";
+import Navbar from "@/components/Navbar";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 export default function Home() {
+  const router = useRouter();
+  const [text, settext] = useState("");
+
+  const createTree = () => {
+    let link = `/generate/?handle=${text}`;
+    router.push(link);
+  };
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <>
+      <Navbar />
+      <div className="gap-10 bg-[#d2e823]">
+        <div className="h-200  w-[90%] mx-auto  flex justify-center gap-10 items-center">
+          <div className="left text-[#254f1a] space-y-3 w-1/2">
+            <h1 className=" text-5xl font-bold">
+              A link in bio built for you.
+            </h1>
+            <p>
+              Join 70M+ people using Linktree for their link in bio. One link to
+              help you share everything you create, curate and sell from your
+              Instagram, TikTok, Twitter, YouTube and other social media
+              profiles.
+            </p>
+            <div className="flex gap-10 mx-5">
+              <input
+                value={text}
+                onChange={(e) => settext(e.target.value)}
+                className="w-full bg-white rounded-lg ring px-5 py-4"
+                type="text"
+                placeholder="Enter your handle"
+              />
+              <button
+                onClick={createTree}
+                className="bg-[#254f1a] w-full cursor-pointer text-white font-bold px-5 py-4 rounded-full"
+              >
+                Get Started for Free
+              </button>
+            </div>
+          </div>
+          <div className="w-1/2">
+            <video
+              id="customize-your-linktree"
+              autoPlay
+              playsInline
+              loop
+              muted
+              className="max-width:100%;width:100%; height:auto; max-height: 100%; border-radius:1rem"
+              poster="https://cdn.prod.website-files.com/666255f7f2126f4e8cec6f8f/692eb9b488731835c528bb18_capture_1764669836574.webp"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+              <source
+                src="https://assets.production.linktr.ee/static/curate/customise_your_linktree.webm"
+                type="video/webm"
+              />
+              <source src="https://assets.production.linktr.ee/static/curate/customise_your_linktree.mp4" />
+            </video>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        {/* <div className="h-0.5 bg-gray-900"></div> */}
+
+        <div className="pb-4">
+          <div className="bg-blue-500">
+            <div className="flex w-[90%] mx-auto py-14 justify-center items-center gap-20">
+              <div>
+                <video
+                  id="customize-your-linktree"
+                  autoPlay
+                  playsInline
+                  loop
+                  muted
+                  className="max-width:100%;width:100%; height:auto; max-height: 100%; border-radius:1rem"
+                  poster="https://cdn.prod.website-files.com/666255f7f2126f4e8cec6f8f/692eb9b488731835c528bb18_capture_1764669836574.webp"
+                >
+                  <source
+                    src="https://assets.production.linktr.ee/static/curate/customise_your_linktree.webm"
+                    type="video/webm"
+                  />
+                  <source src="https://assets.production.linktr.ee/static/curate/customise_your_linktree.mp4" />
+                </video>
+              </div>
+              <div className="flex gap-10 flex-col">
+                <div>
+                  <h1 className="text-4xl font-bold text-[#d2e823]">
+                    Create and customize your Linktree in minutes
+                  </h1>
+                  <p className="text-gray-200 mt-3">
+                    Connect all your content across social media, websites,
+                    stores and more in one link in bio. Customize every detail
+                    or let Linktree automatically enhance it to match your brand
+                    and drive more clicks.
+                  </p>
+                </div>
+                <button className="px-4 w-1/2 font-bold py-3 rounded-full bg-[#d2e823] ring-1">
+                  Get Started for Free
+                </button>
+              </div>
+            </div>
+          </div>
+          <div className="bg-[#780016]">
+            <div className="flex w-[90%] mx-auto py-14 justify-center items-center gap-20">
+              <div className="flex w-[40%] gap-10 flex-col">
+                <div>
+                  <h1 className="text-4xl font-bold text-[#d2e823]">
+                    Create and customize your Linktree in minutes
+                  </h1>
+                  <p className="text-gray-200 mt-3">
+                    Connect all your content across social media, websites,
+                    stores and more in one link in bio. Customize every detail
+                    or let Linktree automatically enhance it to match your brand
+                    and drive more clicks.
+                  </p>
+                </div>
+                <button
+                  onClick={() => createTree}
+                  className="px-4 w-1/2 font-bold py-3 rounded-full bg-[#d2e823] ring-1"
+                >
+                  Get Started for Free
+                </button>
+              </div>
+              <div className="w-[60%]">
+                <HomepageRive />
+              </div>
+            </div>
+          </div>
+          <div className="bg-[#e8efd6]">
+            <div className="flex w-[90%] mx-auto py-14 justify-center items-center gap-20">
+              <div>
+                <img
+                  src="https://cdn.prod.website-files.com/666255f7f2126f4e8cec6f8f/68b80693934ab0ccd4bf7482_home-section-4.avif"
+                  alt="Analyze your audience and keep them engaged"
+                />
+              </div>
+              <div className="flex gap-10 flex-col">
+                <div>
+                  <h1 className="text-4xl font-bold ">
+                    Create and customize your Linktree in minutes
+                  </h1>
+                  <p className=" mt-3">
+                    Connect all your content across social media, websites,
+                    stores and more in one link in bio. Customize every detail
+                    or let Linktree automatically enhance it to match your brand
+                    and drive more clicks.
+                  </p>
+                </div>
+                <button className="px-4 w-1/2 font-bold py-3 rounded-full bg-[#e9c0e9] ring-1">
+                  Get Started for Free
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
-      </main>
-    </div>
+      </div>
+    </>
   );
 }
