@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import GenerateClient from "@/components/GenerateClient";
+import GenerateClient from "@/app/generate/GenerateClient";
 
 export default function Page({ searchParams }) {
   const handle = searchParams?.handle || "";
