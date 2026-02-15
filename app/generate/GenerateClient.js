@@ -1,5 +1,5 @@
 "use client";
-// export const dynamic = "force-dynamic";
+export const dynamic = "force-dynamic";
 
 import Navbar from "@/components/Navbar";
 import React from "react";
