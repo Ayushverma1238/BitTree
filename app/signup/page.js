@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import React from 'react'
 import SignUp from '@/components/signUp'
 const SignUpPage = () => {
