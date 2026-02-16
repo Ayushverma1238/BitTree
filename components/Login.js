@@ -6,7 +6,7 @@ import { useSession, signIn} from "next-auth/react";
 import Link from "next/link";
 
 const Login = () => {
-    const { data: session } = useSession();
+    // const { data: session } = useSession();
   return (
     <>
       <div className="flex h-screen">
