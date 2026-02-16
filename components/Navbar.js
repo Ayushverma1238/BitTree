@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Navbar = () => {
   return (
-    <div className="absolute left-[5%] top-5 w-[95%] shadow-lg bg-linear-to-r from-gray-200 to-slate-300 mx-auto flex justify-centre z-50">
+    <div className="absolute left-[5%] top-5 w-[95%]  mx-auto flex justify-centre z-50">
       <div className="bg-white/80 backdrop-blur-md w-[95%] rounded-full gap-7 shadow-md px-8 py-4 flex items-center justify-between mt-6">
         <div className="flex gap-20 items-center">
           <Link href="/">
